@@ -1,0 +1,110 @@
+<html xmlns:act="http://www.ujf-grenoble.fr/l3miage/actes" xmlns:vs="http://www.ujf-grenoble.fr/l3miage/medical">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>PageInfirmi&egrave;re.xsl</title>
+        <link rel="stylesheet" href="../css/PageInfirmiere.css">
+        <script type="text/javascript">
+                       function openFacture(prenom, nom, actes) {
+                        var width  = 500;
+                        var height = 300;
+                        if(window.innerWidth) {
+                            var left = (window.innerWidth-width)/2;
+                            var top = (window.innerHeight-height)/2;
+                        }
+                        else {
+                            var left = (document.body.clientWidth-width)/2;
+                            var top = (document.body.clientHeight-height)/2;
+                        }
+                        var factureWindow = window.open('','facture','menubar=yes, scrollbars=yes, top='+top+', left='+left+', width='+width+', height='+height+'');
+                        factureText = "Facture pour : " + prenom + " " + nom;
+                        factureWindow.document.write(factureText);
+                    } 
+                </script>
+    </head>
+    <body>
+        <h1>Page Infirmi&egrave;re</h1>
+        <p>
+                            Bonjour Sarah
+            <br>
+                             
+                Aujourd'hui, vous avez 2 patient(s).
+            <br>
+        </p>
+        <h2>Les Patients :</h2>
+        <h4>Patient N&deg; 1</h4>
+        <br>
+        <p>
+            Nom :Al&eacute;cole
+            <br>
+                     Pr&eacute;nom :Yvon
+            <br>
+        </p>
+        <p>
+            <i>Adresse Compl&egrave;te</i>
+            <br>
+                    Etage :6
+            <br>
+                    Num&eacute;ro : 50
+            <br>
+                    Rue: avenue F&eacute;lix Viallet
+            <br>
+                    Ville : Grenoble
+            <br>
+                    Code Postal :
+            <br>
+        </p>
+        <p>
+            Liste des soins :
+            Injection sous-cutan&eacute;e.
+        
+            <br>
+        </p>
+        <p>
+            <button onclick="
+                openFacture('Yvon',
+                            'Al&eacute;cole',
+                            '')
+                "> FACTURE
+         </button>
+            <br>
+        </p>
+        <h4>Patient N&deg; 2</h4>
+        <br>
+        <p>
+            Nom :Orouge
+            <br>
+                     Pr&eacute;nom :Elvire
+            <br>
+        </p>
+        <p>
+            <i>Adresse Compl&egrave;te</i>
+            <br>
+                    Etage :
+            <br>
+                    Num&eacute;ro : 
+            <br>
+                    Rue: Rond-Point de la Croix de Vie
+            <br>
+                    Ville : La Tronche
+            <br>
+                    Code Postal :
+            <br>
+        </p>
+        <p>
+            Liste des soins :
+            Pansement de br&ucirc;lure &eacute;tendue ou de plaie chimique ou thermique &eacute;tendue,
+            sur une surface sup&eacute;rieure &agrave; 5% de la surface corporelle.
+        
+            <br>
+        </p>
+        <p>
+            <button onclick="
+                openFacture('Elvire',
+                            'Orouge',
+                            '')
+                "> FACTURE
+         </button>
+            <br>
+        </p>
+    </body>
+</html>

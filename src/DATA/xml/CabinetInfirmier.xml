@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vs:cabinet
+         xmlns:vs="http://www.ujf-grenoble.fr/l3miage/medical" 
+         xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" 
+         xs:schemaLocation="http://www.ujf-grenoble.fr/l3miage/medical ../xsd/CabinetInfirmier.xsd"> 
+        
+    <vs:nom>Soins à Grenoble</vs:nom>
+    <vs:adresse>            
+        <vs:numéro>60</vs:numéro>
+        <vs:rue>rue de la Chimie</vs:rue>
+        <vs:ville>Grenoble</vs:ville>
+        <vs:codePostal>38041</vs:codePostal>
+    </vs:adresse>
+    <vs:infirmiers>
+        <vs:infirmier id="001">
+            <vs:nom>Fréchie</vs:nom>
+            <vs:prénom>Sarah</vs:prénom>
+            <vs:photo>sarah.png</vs:photo>
+        </vs:infirmier>
+    
+        <vs:infirmier id="002">
+            <vs:nom>Stické</vs:nom>
+            <vs:prénom>Sophie</vs:prénom>
+            <vs:photo>sophie.jpg</vs:photo>
+        </vs:infirmier>
+    
+        <vs:infirmier id="003">
+            <vs:nom>Ochon</vs:nom>
+            <vs:prénom>Paul</vs:prénom>
+            <vs:photo>paul.png</vs:photo>
+        </vs:infirmier>
+    </vs:infirmiers>
+    <vs:patients>
+        <vs:patient>
+            <!-- Homme, né en août 98 en France, à Marseille (n°55 en bouches du rhône) 458e naissance -->
+            <vs:nom>Alécole</vs:nom>
+            <vs:prénom>Yvon</vs:prénom>
+            <vs:sexe>M</vs:sexe>
+            <vs:naissance>1998-08-02</vs:naissance>
+            <vs:numéro>198081305545892</vs:numéro>
+            <vs:adresse>
+                <vs:étage>6</vs:étage>
+                <vs:numéro>50</vs:numéro>
+                <vs:rue>avenue Félix Viallet</vs:rue>
+                <vs:ville>Grenoble</vs:ville>
+                <vs:codePostal>38031</vs:codePostal>
+            </vs:adresse>
+            <vs:visite date="2015-12-08" intervenant="001">
+                <vs:acte id="109"/>
+            </vs:visite>
+             
+        </vs:patient>
+        <vs:patient>
+            <!-- Elvire est née le 08 mars 82 en France, à Lyon (n° 23 dans le rhône), il s'agissait de la 52e naissance dans cette ville -->
+            <vs:nom>Orouge</vs:nom>
+            <vs:prénom>Elvire</vs:prénom>
+            <vs:sexe>F</vs:sexe>
+            <vs:naissance>1982-03-08</vs:naissance>
+            <vs:numéro>123456789101119</vs:numéro>
+            <vs:adresse>
+                <vs:étage></vs:étage>
+                <vs:numéro></vs:numéro>
+                <vs:rue>Rond-Point de la Croix de Vie</vs:rue>
+                <vs:ville>La Tronche</vs:ville>
+                <vs:codePostal>38700</vs:codePostal>
+            </vs:adresse>
+            <vs:visite date="2015-12-08" intervenant="001">
+                <vs:acte id="300"/>
+            </vs:visite>
+        </vs:patient>
+        <vs:patient>
+            <vs:nom>Pien</vs:nom>
+            <vs:prénom>Oscare</vs:prénom>
+            <vs:sexe>M</vs:sexe>
+            <vs:naissance>1975-03-25</vs:naissance>
+            <vs:numéro>275037306569202</vs:numéro>
+            <vs:adresse>
+                <vs:étage></vs:étage>
+                <vs:numéro></vs:numéro>
+                <vs:rue>rue Casimir Brenier</vs:rue>
+                <vs:ville>Grenoble</vs:ville>
+                <vs:codePostal>38000</vs:codePostal>
+            </vs:adresse>
+            <vs:visite date="2015-12-08">
+                <vs:acte id="104"/>
+            </vs:visite>
+        </vs:patient>
+        <vs:patient>
+            <vs:nom>Kapoëtla</vs:nom>
+            <vs:prénom>Xavier</vs:prénom>
+            <vs:sexe>M</vs:sexe>
+            <vs:naissance>2011-08-02</vs:naissance>
+            <vs:numéro>111083306303521</vs:numéro>
+            <vs:adresse>
+                <vs:étage></vs:étage>
+                <vs:numéro>25</vs:numéro>
+                <vs:rue>rue des Martyrs</vs:rue>
+                <vs:ville>Grenoble</vs:ville>
+                <vs:codePostal>38042</vs:codePostal>
+            </vs:adresse>
+            <vs:visite date="2015-12-08">
+                <vs:acte id="111"/>
+            </vs:visite>
+          
+        </vs:patient>
+        
+            
+    </vs:patients>     
+</vs:cabinet>

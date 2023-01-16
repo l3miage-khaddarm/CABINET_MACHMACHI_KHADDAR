@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XmlSchema.xsd to edit this template
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:vs="http://www.ujf-grenoble.fr/l3miage/medical"
+           targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical"
+           elementFormDefault="qualified">
+    <xs:element name="cabinet" type="vs:Cabinet">
+     <!-- clé d'existance assurant l'existance de l'intervenant d'une visite dans la liste des infirmiers du cabinet -->
+        <xs:keyref name="keyEInf" refer="vs:keyUInf">
+            <xs:selector xpath="vs:patients/vs:patient/vs:visite" />
+            <xs:field xpath="@intervenant" />
+        </xs:keyref>
+    </xs:element>
+    <!-- définition du complex type Cabinet -->
+    <xs:complexType name="Cabinet">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="adresse" type="vs:Adresse"/>
+            <xs:element name="infirmiers" type="vs:Infirmiers">
+                 <!-- clé d'unicité de l'infirmier -->
+                <xs:unique name="keyUInf">
+                    <xs:selector xpath="vs:infirmier" />
+                    <xs:field xpath="@id" />
+                </xs:unique>
+            </xs:element>
+            <xs:element name="patients" type="vs:Patients"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!--DEFINITON DE L'ADRESSE-->
+    <xs:complexType name="Adresse">
+        <xs:sequence>
+            <xs:element name="numéro" type="xs:int"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="ville" type="xs:string"/>
+            <xs:element name="codePostal" type="vs:CodePostal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- le code postal contient que 5 chiffres -->
+     <xs:simpleType name="CodePostal">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\d){5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- DEFINITION DU TYPE INFIRMERS -->
+    <xs:complexType name="Infirmiers">
+        <xs:sequence>
+             <xs:element name="infirmier" type="vs:Infirmier" minOccurs = "0" maxOccurs ="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:int"/>
+    </xs:complexType>
+    <!-- définition du complex type Infirmier -->
+    <xs:complexType name="Infirmier" >
+        <xs:sequence>
+             <xs:element name="nom" type="xs:string"/>
+             <xs:element name="prénom" type="xs:string"/>    
+             <xs:element name="photo" type="xs:string"/>      
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+    <!-- définition du complex type Patients -->
+    <xs:complexType name="Patients">
+        <xs:sequence>
+            <xs:element name="patient" type="vs:Patient" minOccurs = "0" maxOccurs ="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- définition du complex type Patient -->
+    <xs:complexType name="Patient">
+        <xs:sequence>
+             <xs:element name="nom" type="xs:string"/>
+             <xs:element name="prénom" type="xs:string"/>    
+             <xs:element name="sexe" type="xs:Sexe"/>      
+             <xs:element name="naissance" type="xs:date"/>
+             <xs:element name="numéro" type="vs:NuméroS"/>
+             <xs:element name="adresse" type="vs:AdresseP"/>  
+             <xs:element name="visite" type="vs:Visite"/>      
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="Sexe">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="F"/>
+            <xs:enumeration value="M"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NuméroS">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\d){15}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- définition du complex type Adresse du patient -->
+    <xs:complexType name="AdresseP">
+        <xs:sequence>
+            <xs:element name="étage" type="xs:string"/>
+            <xs:element name="numéro" type="xs:string"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="ville" type="xs:string"/>
+            <xs:element name="codePostal" type="vs:CodePostal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- définition du complex type Visite -->
+    <xs:complexType name="Visite">
+        <xs:sequence>
+            <xs:element name="acte" type="vs:Acte"/>
+        </xs:sequence>
+        <xs:attribute name="date" type="xs:date"/>
+        <xs:attribute name="intervenant" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="Acte">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+</xs:schema>

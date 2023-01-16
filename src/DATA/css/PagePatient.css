@@ -1,0 +1,27 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 5 déc. 2022, 23:41:22
+    Author     : admin
+*/
+h1
+{
+    font-size: 1.6em;
+    color: blue;
+    font-weight: bold;  
+}
+h4
+{
+    font-size: 1.6em;
+    color: lightblue;
+    font-weight: bold;  
+}
+.t1{
+  border : 2px solid black;
+}
+.t2 td, .t2 th{
+  border: 1px solid blue;
+}
+
